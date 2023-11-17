@@ -1,0 +1,12 @@
+import { PopularBoard } from '../../components/PopularBoard';
+import { SearchScene } from '../../components/SearchScene';
+import { Wrapper } from './Canvas.styles';
+
+export const Canvas = () => {
+  return (
+    <Wrapper>
+      <SearchScene />
+      <PopularBoard />
+    </Wrapper>
+  );
+};
