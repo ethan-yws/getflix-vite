@@ -2,7 +2,7 @@ import { PopularBoard } from "../../components/PopularBoard";
 import { SearchScene } from "../../components/SearchScene";
 import { Wrapper } from "./Home.styles";
 
-export const Canvas = () => {
+export const Home = () => {
   return (
     <Wrapper>
       <SearchScene />

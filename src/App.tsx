@@ -1,4 +1,4 @@
-import { Canvas } from "./pages/Home/Home";
+import { Home } from "./pages/Home/Home";
 import { HeaderBar } from "./components/HeaderBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SearchResPage } from "./pages/SearchResPage";
@@ -12,7 +12,7 @@ export default function App() {
         <Routes>
           <Route path="/">
             {/* Route to Index/Home page */}
-            <Route index element={<Canvas />} />
+            <Route index element={<Home />} />
             {/* Route to Search page */}
             <Route path="search" element={<SearchResPage />} />
             {/* Route to single movie details page */}
