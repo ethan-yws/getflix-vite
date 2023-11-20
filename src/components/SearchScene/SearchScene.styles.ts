@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../utils';
 
 export const Wrapper = styled.div<{ bgimage: string }>`
   display: flex;
@@ -19,7 +20,7 @@ export const Wrapper = styled.div<{ bgimage: string }>`
   background-repeat: no-repeat;
   transition: 0.5s;
 
-  @media screen and (max-width: 768px) {
+ ${media.tablet} {
     margin: 0;
   }
 `;
@@ -54,7 +55,7 @@ export const Input = styled.input`
   width: 300px;
   transition: 0.5s;
 
-  @media screen and (max-width: 768px) {
+ ${media.tablet} {
     width: 150px;
   }
 `;

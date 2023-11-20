@@ -1,8 +1,8 @@
-import { Canvas } from './components/Canvas';
-import { HeaderBar } from './components/HeaderBar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { SearchResPage } from './components/SearchResPage';
-import { MovieDetails } from './components/MovieDetails';
+import { Canvas } from "./pages/Home/Home";
+import { HeaderBar } from "./components/HeaderBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SearchResPage } from "./pages/SearchResPage";
+import { MovieDetails } from "./components/MovieDetails";
 
 export default function App() {
   return (

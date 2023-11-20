@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { media } from "../../utils";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ export const Logo = styled.div`
   margin-left: 1em;
   font-family: Arial, Helvetica, sans-serif;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     font-size: 16px;
   }
 `;

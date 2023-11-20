@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Button, Pagination, Wrapper } from './SearchResPage.styles';
@@ -57,7 +58,7 @@ export const SearchResPage: React.FC = () => {
       {/* handle error response */}
       {info['Response'] === 'False' && (
         <div>
-          :\ Woops! Not Result Found, Please try again with other movie titles
+          :\ Woops! No Result Found, Please try again with other movie titles
         </div>
       )}
       <Pagination>

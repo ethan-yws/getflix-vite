@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const Poster = styled.div`
 export const Image = styled.img`
   height: 141px;
   width: 94px;
-  border-radius: 7px 0 0 7px; ;
+  border-radius: 7px 0 0 7px;
 `;
 
 export const InfoContainer = styled.div`

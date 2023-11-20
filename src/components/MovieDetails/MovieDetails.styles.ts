@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { media } from "../../utils";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ export const DetailsContainer = styled.div`
   height: calc((100vh - 50px) / 2);
   background-color: whitesmoke;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     flex-direction: column;
     height: auto;
   }
@@ -26,7 +27,7 @@ export const Poster = styled.img`
   width: 20%;
   object-fit: contain;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     height: 141px;
     width: 94px;
     margin-top: 0.5em;
@@ -44,10 +45,10 @@ export const Details = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 2em;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     font-size: 1em;
     font-weight: 550;
   }
@@ -71,7 +72,7 @@ export const OverviewTitle = styled.div`
 `;
 
 export const OverviewPlot = styled.p`
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `;
 
 export const Creators = styled.div`
@@ -81,7 +82,7 @@ export const Creators = styled.div`
   margin-top: 2em;
   font-size: 10pt;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -126,7 +127,7 @@ export const Ratings = styled.div`
   padding: 2.5em;
   margin-top: 1em;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     flex-direction: column;
     align-items: flex-start;
     gap: 1em;

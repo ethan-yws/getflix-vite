@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { media } from "../../utils";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const MoviesContainer = styled.div`
   column-gap: 10px;
   row-gap: 1em;
 
-  @media screen and (max-width: 768px) {
+  ${media.tablet} {
     display: flex;
     justify-content: space-between;
     align-items: center;

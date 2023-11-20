@@ -1,10 +1,10 @@
 export const popularMovies: string[] = [
   'Moon Knight',
-  'Halo',
-  'Sonic',
+  'The Marvels',
+  'Loki',
   'Avengers',
   'Ant-Man',
-  'Suits',
-  'Morbius',
-  'Iron Man',
+  'Attack on Titan',
+  'Oppenheimer',
+  'Barbie',
 ];
