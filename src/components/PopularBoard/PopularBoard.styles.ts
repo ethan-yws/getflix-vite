@@ -4,9 +4,11 @@ import { media } from "../../utils";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: calc((100vh - 50px) / 2); */
-  margin: 0 20% 0 20%;
-  /* background-color: salmon; */
+  margin: 0 20%;
+
+  ${media.tablet} {
+    margin: 0;
+  }
 `;
 
 export const Title = styled.div`

@@ -3,7 +3,6 @@ import { MoviesContainer, Title, Wrapper } from "./PopularBoard.styles";
 import { PopularMovie } from "./PopularMoive";
 
 export const PopularBoard = () => {
-  // eslint-disable-next-line react/no-unescaped-entities
   return (
     <Wrapper>
       <Title>What's Popular</Title>
