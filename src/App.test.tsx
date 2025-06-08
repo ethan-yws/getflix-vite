@@ -7,6 +7,19 @@ jest.mock('react-router-dom', () => ({
     useParams: jest.fn().mockReturnValue({ imdbId: 'someId' }),
 }));
 
+jest.mock('./config', () => ({
+    config: {
+        omdb: {
+            basePath: 'https://www.omdbapi.com',
+            apiKey: '320f6ab2', // or your test key
+        },
+        auth0: {
+            domain: 'test-domain',
+            clientId: 'test-client-id',
+        },
+    },
+}));
+
 const mockOMDBResponseByTitle = {
     Title: 'Halo',
     Year: '2022–',
