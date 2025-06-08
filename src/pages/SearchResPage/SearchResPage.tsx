@@ -2,14 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button, Pagination, Wrapper } from "./SearchResPage.styles";
-import {
-  OMDB_API_BASE_PATH,
-  OMDB_API_KEY,
-} from "../../common/constants/omdb.constant";
+import { config } from "../../config";
 import { SearchResItem } from "../../components/SearchResItem";
 import { Spinner } from "../../ui/Spinner";
 
-const queryBaseUrl = `${OMDB_API_BASE_PATH}/?apikey=${OMDB_API_KEY}&s=`;
+const queryBaseUrl = `${config.omdb.basePath}/?apikey=${config.omdb.apiKey}&s=`;
 
 export const SearchResPage: React.FC = () => {
   const [searchParams] = useSearchParams();

@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import {
-  OMDB_API_BASE_PATH,
-  OMDB_API_KEY,
-} from '../../../common/constants/omdb.constant';
-import { Wrapper } from '../PopularBoard.styles';
-import { Info, Poster } from './PopularMovie.styles';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Wrapper } from "../PopularBoard.styles";
+import { Info, Poster } from "./PopularMovie.styles";
+import { Link } from "react-router-dom";
+import { config } from "../../../config";
 
-const queryBaseUrl = `${OMDB_API_BASE_PATH}/?apikey=${OMDB_API_KEY}&t=`;
+const queryBaseUrl = `${config.omdb.basePath}/?apikey=${config.omdb.apiKey}&t=`;
 
 interface IPoplarMovie {
   title: string;
 }
 
 export const PopularMovie: React.FC<IPoplarMovie> = ({ title }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [info, setInfo] = useState<any>({});
 
   useEffect(() => {
@@ -29,16 +27,16 @@ export const PopularMovie: React.FC<IPoplarMovie> = ({ title }) => {
 
   return (
     <Wrapper>
-      <Link to={`/movie/${info['imdbID']}`}>
-        <Poster src={info['Poster']} />
+      <Link to={`/movie/${info["imdbID"]}`}>
+        <Poster src={info["Poster"]} />
       </Link>
       <Link
-        to={`/movie/${info['imdbID']}`}
-        style={{ textDecoration: 'none', color: '#000' }}
+        to={`/movie/${info["imdbID"]}`}
+        style={{ textDecoration: "none", color: "#000" }}
       >
-        <Info>{info['Title']}</Info>
+        <Info>{info["Title"]}</Info>
       </Link>
-      <Info color="gray">{info['Released']}</Info>
+      <Info color="gray">{info["Released"]}</Info>
     </Wrapper>
   );
 };

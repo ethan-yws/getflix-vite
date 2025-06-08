@@ -8,10 +8,14 @@ import {
 } from "./SearchScene.styles";
 import AvengersPoster from "../../assets/avengers-poster.jpeg";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const SearchScene: React.FC = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState<string>("");
+  const { user } = useAuth0();
+
+  const { given_name, name } = user || {};
 
   // handle user input
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -25,7 +29,7 @@ export const SearchScene: React.FC = () => {
   return (
     <Wrapper $bgImage={AvengersPoster}>
       <Container>
-        <Title>Welcome :)</Title>
+        <Title>Welcome :) {given_name || name}</Title>
         <SearchBarContainer onSubmit={handleSubmit}>
           <Input
             type="text"

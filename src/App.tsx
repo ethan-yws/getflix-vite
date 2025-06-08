@@ -2,7 +2,7 @@ import { Home } from "./pages/Home/Home";
 import { HeaderBar } from "./components/HeaderBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SearchResPage } from "./pages/SearchResPage";
-import { MovieDetails } from "./components/MovieDetails";
+import { MovieDetails } from "./pages/MovieDetails";
 
 export default function App() {
   return (

@@ -18,14 +18,11 @@ import {
   Title,
   Wrapper,
 } from "./MovieDetails.styles";
-import {
-  OMDB_API_BASE_PATH,
-  OMDB_API_KEY,
-} from "../../common/constants/omdb.constant";
+import { config } from "../../config";
 import PosterNotFound from "../../assets/imageNotFound.png";
 import { Spinner } from "../../ui/Spinner";
 
-const queryBaseUrl = `${OMDB_API_BASE_PATH}/?apikey=${OMDB_API_KEY}&i=`;
+const queryBaseUrl = `${config.omdb.basePath}/?apikey=${config.omdb.apiKey}&i=`;
 
 export const MovieDetails: React.FC = () => {
   const { imdbId } = useParams<{ imdbId: string }>();
