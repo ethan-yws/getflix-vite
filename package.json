@@ -7,10 +7,12 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "format:fix": "npx prettier --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
+    "prettier": "^3.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
