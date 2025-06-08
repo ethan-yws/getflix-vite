@@ -34,11 +34,11 @@ jobs:
       - name: Format code
         run: pnpm format:fix
 
-      - name: Build project
-        run: pnpm run build
-
       - name: Run tests
         run: pnpm test
+
+      - name: Build project
+        run: pnpm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
