@@ -8,6 +8,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest",
+    "format": "npx prettier --check '**/*.{js,jsx,ts,tsx}'",
     "format:fix": "npx prettier --write '**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
