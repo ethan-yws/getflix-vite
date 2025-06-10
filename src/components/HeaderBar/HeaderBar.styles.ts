@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { media } from "../../utils";
+import styled from 'styled-components';
+import { media } from '../../utils';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,7 +9,14 @@ export const Wrapper = styled.div`
   background-color: #000;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
+  padding-right: 16px;
+
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 `;
 
 export const Container = styled.div`
@@ -27,5 +34,20 @@ export const Logo = styled.div`
 
   ${media.tablet} {
     font-size: 16px;
+  }
+`;
+
+export const Button = styled.button`
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
   }
 `;

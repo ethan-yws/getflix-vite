@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import {
-  OMDB_API_BASE_PATH,
-  OMDB_API_KEY,
-} from '../../../common/constants/omdb.constant';
 import { Wrapper } from '../PopularBoard.styles';
 import { Info, Poster } from './PopularMovie.styles';
 import { Link } from 'react-router-dom';
+import { config } from '../../../config';
 
-const queryBaseUrl = `${OMDB_API_BASE_PATH}/?apikey=${OMDB_API_KEY}&t=`;
+const queryBaseUrl = `${config.omdb.basePath}/?apikey=${config.omdb.apiKey}&t=`;
 
 interface IPoplarMovie {
   title: string;
 }
 
 export const PopularMovie: React.FC<IPoplarMovie> = ({ title }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [info, setInfo] = useState<any>({});
 
   useEffect(() => {

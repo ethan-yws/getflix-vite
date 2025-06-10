@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { media } from "../../utils";
+import styled from 'styled-components';
+import { media } from '../../utils';
 
 export const Wrapper = styled.div<{ $bgImage: string }>`
   display: flex;
@@ -8,7 +8,8 @@ export const Wrapper = styled.div<{ $bgImage: string }>`
   margin: 0 20% 0 20%;
   height: calc((100vh - 50px) / 2);
   min-height: calc((100vh - 50px) / 2);
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       to bottom,
       rgba(245, 246, 252, 0.52),
       rgba(117, 19, 93, 0.73)
@@ -31,13 +32,13 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   color: #fff;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
 `;
 
 export const Description = styled.h3`
   color: #fff;
   white-space: nowrap;
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
 
   @media screen and (max-width: 1000px) {
     white-space: normal;
@@ -66,8 +67,8 @@ export const TagsContainer = styled.div`
 `;
 
 export const Tag = styled.div<{ isSelected: boolean }>`
-  background-color: ${(props) => (props.isSelected ? "#000" : "#fff")};
-  color: ${(props) => (props.isSelected ? "#fff" : "#000")};
+  background-color: ${(props) => (props.isSelected ? '#000' : '#fff')};
+  color: ${(props) => (props.isSelected ? '#fff' : '#000')};
   border-radius: 10px;
   font-size: 12px;
   width: 65px;

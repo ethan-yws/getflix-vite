@@ -1,4 +1,4 @@
-import { breakPoints } from "./breakPoints";
+import { breakPoints } from './breakPoints';
 
 const createMediaQuery = (width: number) =>
   `@media screen and (max-width: ${width}px)`;

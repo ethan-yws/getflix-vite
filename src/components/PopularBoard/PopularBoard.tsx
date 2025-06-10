@@ -1,6 +1,6 @@
-import { popularMovies } from "../../common/constants/popularMovies.constant";
-import { MoviesContainer, Title, Wrapper } from "./PopularBoard.styles";
-import { PopularMovie } from "./PopularMoive";
+import { popularMovies } from '../../common/constants/popularMovies.constant';
+import { MoviesContainer, Title, Wrapper } from './PopularBoard.styles';
+import { PopularMovie } from './PopularMoive';
 
 export const PopularBoard = () => {
   return (

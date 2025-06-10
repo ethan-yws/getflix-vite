@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { media } from "../../utils";
+import styled from 'styled-components';
+import { media } from '../../utils';
 
 export const Wrapper = styled.div`
   display: flex;

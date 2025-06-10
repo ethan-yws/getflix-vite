@@ -1,10 +1,23 @@
 import { render, waitFor } from '@testing-library/react';
 import App from './App';
-import { MovieDetails } from './components/MovieDetails';
+import { MovieDetails } from './pages/MovieDetails';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useParams: jest.fn().mockReturnValue({ imdbId: 'someId' }),
+}));
+
+jest.mock('./config', () => ({
+  config: {
+    omdb: {
+      basePath: 'https://www.omdbapi.com',
+      apiKey: '320f6ab2', // or your test key
+    },
+    auth0: {
+      domain: 'test-domain',
+      clientId: 'test-client-id',
+    },
+  },
 }));
 
 const mockOMDBResponseByTitle = {
@@ -86,7 +99,7 @@ describe('Getflix test suite', () => {
     expect(getByPlaceholderText('Search for a movie...')).toBeTruthy();
     await waitFor(() => expect(getByText("What's Popular")).toBeTruthy());
     await waitFor(() =>
-      expect(getAllByText(mockOMDBResponseByTitle.Title).length).toBe(8),
+      expect(getAllByText(mockOMDBResponseByTitle.Title).length).toBe(8)
     );
   });
 
@@ -99,14 +112,14 @@ describe('Getflix test suite', () => {
 
     await waitFor(() =>
       expect(fetch).toHaveBeenCalledWith(
-        'https://www.omdbapi.com/?apikey=320f6ab2&i=someId',
-      ),
+        'https://www.omdbapi.com/?apikey=320f6ab2&i=someId'
+      )
     );
     await waitFor(() =>
-      expect(getByText(mockOMDBResponseById.Title)).toBeTruthy(),
+      expect(getByText(mockOMDBResponseById.Title)).toBeTruthy()
     );
     await waitFor(() =>
-      expect(getByText(mockOMDBResponseById.Plot)).toBeTruthy(),
+      expect(getByText(mockOMDBResponseById.Plot)).toBeTruthy()
     );
   });
 });

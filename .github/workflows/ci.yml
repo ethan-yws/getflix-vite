@@ -31,13 +31,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build project
-        run: pnpm run build
+      - name: Check formatting
+        run: pnpm format
 
       - name: Run tests
         run: pnpm test
 
+      - name: Build project
+        run: pnpm run build
+
       - name: Deploy to Netlify
+        if: github.ref == 'refs/heads/main'
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: "./dist"

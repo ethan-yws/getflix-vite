@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { media } from "../../utils";
+import styled from 'styled-components';
+import { media } from '../../utils';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ export const Details = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 2em;
 
   ${media.tablet} {
@@ -72,7 +72,7 @@ export const OverviewTitle = styled.div`
 `;
 
 export const OverviewPlot = styled.p`
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 `;
 
 export const Creators = styled.div`
