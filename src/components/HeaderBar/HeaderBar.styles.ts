@@ -11,6 +11,12 @@ export const Wrapper = styled.div`
   top: 0;
   z-index: 1000;
   padding-right: 16px;
+
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 `;
 
 export const Container = styled.div`
