@@ -47,6 +47,11 @@ export const Description = styled.h3`
 
 export const SearchBarContainer = styled.form`
   display: flex;
+  gap: 8px;
+
+  ${media.tablet} {
+    flex-direction: column;
+  }
 `;
 
 export const Input = styled.input`
