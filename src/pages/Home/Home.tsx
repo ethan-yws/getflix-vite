@@ -4,8 +4,10 @@ import { SearchScene } from '../../components/SearchScene';
 import { Wrapper } from './Home.styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import { supabaseClient } from '../../apis/supabase-client';
+import useUserStore from '../../store/useUserStore';
 
 export const Home = () => {
+  const setUser = useUserStore((state) => state.setUser);
   const { isAuthenticated, user } = useAuth0();
   const { email } = user || {};
 
@@ -15,15 +17,22 @@ export const Home = () => {
         const res = await supabaseClient.getUser(email);
         if (!res.length) {
           await supabaseClient.createUser(email);
+
+          // TODO: log last successful login time after creating the user
         }
 
-        const userId = res[0].user_id;
+        const { user_id: userId, username } = res[0];
         await supabaseClient.createSuccessfulLoginTime(userId);
+
+        setUser({
+          user_id: userId,
+          username: username,
+        });
       }
     };
 
     readOrCreateUser(email);
-  }, [email, isAuthenticated]);
+  }, [email, isAuthenticated, setUser]);
 
   return (
     <Wrapper>
