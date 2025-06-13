@@ -9,6 +9,30 @@ import {
 import AvengersPoster from '../../assets/avengers-poster.jpeg';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import styled from 'styled-components';
+import { media } from '../../utils';
+
+const StyledButton = styled.button`
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #000;
+  height: auto;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  ${media.tablet} {
+    height: 43px;
+  }
+`;
 
 export const SearchScene: React.FC = () => {
   const navigate = useNavigate();
@@ -37,6 +61,7 @@ export const SearchScene: React.FC = () => {
             placeholder="Search for a movie..."
             onChange={(e) => setInput(e.target.value)}
           />
+          <StyledButton type="submit">Search</StyledButton>
         </SearchBarContainer>
       </Container>
     </Wrapper>

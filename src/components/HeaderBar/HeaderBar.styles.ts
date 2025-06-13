@@ -46,6 +46,10 @@ export const Button = styled.button`
   cursor: pointer;
   font-size: 12px;
 
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
   &:hover {
     background-color: #fff;
     color: #000;
