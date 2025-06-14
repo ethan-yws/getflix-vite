@@ -27,22 +27,22 @@ export const SearchResItem: React.FC<ISearchResItem> = ({
   imdbId,
 }) => {
   return (
-    <Wrapper>
-      <Link to={`/movie/${imdbId}`}>
+    <Link
+      to={`/movie/${imdbId}`}
+      style={{ textDecoration: 'none', color: '#000' }}
+    >
+      <Wrapper>
         <Poster>
           <Image src={poster === 'N/A' ? PosterNotFound : poster} alt={title} />
         </Poster>
-      </Link>
-      <InfoContainer>
-        <Link
-          to={`/movie/${imdbId}`}
-          style={{ textDecoration: 'none', color: '#000' }}
-        >
+
+        <InfoContainer>
           <Title>{title}</Title>
-        </Link>
-        <Year>{year}</Year>
-        <TypeTag>{type}</TypeTag>
-      </InfoContainer>
-    </Wrapper>
+
+          <Year>{year}</Year>
+          <TypeTag>{type}</TypeTag>
+        </InfoContainer>
+      </Wrapper>
+    </Link>
   );
 };

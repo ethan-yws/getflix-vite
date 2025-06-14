@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   margin-right: 2vw;
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 8px;
 `;
 
 export const Poster = styled.div`
@@ -18,7 +19,7 @@ export const Poster = styled.div`
 export const Image = styled.img`
   height: 141px;
   width: 94px;
-  border-radius: 7px 0 0 7px;
+  border-radius: 8px 0 0 8px;
 `;
 
 export const InfoContainer = styled.div`

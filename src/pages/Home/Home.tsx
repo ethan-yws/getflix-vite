@@ -3,7 +3,7 @@ import { PopularBoard } from '../../components/PopularBoard';
 import { SearchScene } from '../../components/SearchScene';
 import { Wrapper } from './Home.styles';
 import { useAuth0 } from '@auth0/auth0-react';
-import { supabaseClient } from '../../apis/supabase-client';
+import { supabaseClient } from '../../apis';
 import useUserStore from '../../store/useUserStore';
 
 export const Home = () => {
