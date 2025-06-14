@@ -23,7 +23,6 @@ export const HeaderBar: React.FC = () => {
       {isAuthenticated ? (
         <div className="header-buttons">
           <StyledLink to="/favourites" rel="noopener noreferrer">
-            <span style={{ display: 'none' }}>Favourites</span>
             <img src={IconFav} alt="Favourites" />
           </StyledLink>
           <Button
