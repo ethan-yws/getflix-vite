@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,18 +20,25 @@ interface MovieCardProps {
   posterUrl: string;
   title: string;
   releaseDate: string;
+  imdbId: string;
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({
   posterUrl,
   title,
   releaseDate,
+  imdbId,
 }) => {
   return (
-    <Wrapper>
-      <img src={posterUrl} alt={title} />
-      <h3>{title}</h3>
-      <span>{releaseDate}</span>
-    </Wrapper>
+    <Link
+      to={`/movie/${imdbId}`}
+      style={{ textDecoration: 'none', color: '#000' }}
+    >
+      <Wrapper>
+        <img src={posterUrl} alt={title} />
+        <h3>{title}</h3>
+        <span>{releaseDate}</span>
+      </Wrapper>
+    </Link>
   );
 };

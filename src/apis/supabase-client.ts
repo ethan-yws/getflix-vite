@@ -89,9 +89,35 @@ const getFavouriteMovies = async (
   }
 };
 
+const addFavouriteMovie = async (
+  userId: string,
+  imdbId: string,
+  title: string
+): Promise<void> => {
+  try {
+    await fetch(`${config.supabase.apiPath}/Favourites`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${config.supabase.anonApiKey}`,
+        apikey: config.supabase.anonApiKey,
+      },
+      body: JSON.stringify({
+        user_id: userId,
+        imdb_id: imdbId,
+        movie_title: title,
+      }),
+    });
+  } catch (error) {
+    console.error('Error adding favourite movie:', error);
+    throw error;
+  }
+};
+
 export const supabaseClient = {
   createUser,
   getUser,
   createSuccessfulLoginTime,
   getFavouriteMovies,
+  addFavouriteMovie,
 };

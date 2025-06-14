@@ -48,6 +48,7 @@ export const FavouritesPage = () => {
               posterUrl={movie['Poster']}
               title={movie['Title']}
               releaseDate={movie['Released']}
+              imdbId={movie.imdbID}
             />
           ))}
         </FavouritesContainer>
