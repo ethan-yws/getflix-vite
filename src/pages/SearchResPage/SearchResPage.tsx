@@ -1,12 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Button, Pagination, Wrapper } from './SearchResPage.styles';
 import { config } from '../../config';
 import { SearchResItem } from '../../components/SearchResItem';
 import { Spinner } from '../../ui/Spinner';
+import { IMDBMovieDetails } from '../../apis/types';
 
 const queryBaseUrl = `${config.omdb.basePath}/?apikey=${config.omdb.apiKey}&s=`;
+
+interface SearchResponse {
+  Search: IMDBMovieDetails[];
+  totalResults: string;
+  Response: string;
+  Error?: string;
+}
 
 export const SearchResPage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -14,21 +21,28 @@ export const SearchResPage: React.FC = () => {
   const [pageIndex, setPageIndex] = useState<number>(1);
   const [pages, setPages] = useState<number>(1);
 
-  const [info, setInfo] = useState<any>({});
+  const [info, setInfo] = useState<SearchResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const dataRaw = await fetch(
-        queryBaseUrl + userInput + `&page=${pageIndex}`
-      );
-      const data = await dataRaw.json();
-      setInfo(data);
-      setPages(Math.ceil(parseInt(data['totalResults']) / 10));
-      setLoading(false);
+      setError(null);
+      try {
+        const dataRaw = await fetch(
+          queryBaseUrl + userInput + `&page=${pageIndex}`
+        );
+        if (!dataRaw.ok) throw new Error('Failed to fetch search results');
+        const data: SearchResponse = await dataRaw.json();
+        setInfo(data);
+        setPages(Math.ceil(parseInt(data['totalResults']) / 10));
+      } catch (err) {
+        setError('Failed to load search results. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
     };
-
     fetchData();
   }, [userInput, pageIndex]);
 
@@ -45,22 +59,26 @@ export const SearchResPage: React.FC = () => {
   return (
     <>
       {loading && <Spinner />}
+      {error && (
+        <div style={{ color: 'red', textAlign: 'center' }}>{error}</div>
+      )}
       <Wrapper>
-        {info['Response'] === 'True' &&
-          Array.isArray(info['Search']) &&
-          info['Search'].length > 0 &&
-          info['Search'].map((item: any) => (
+        {info &&
+          info.Response === 'True' &&
+          Array.isArray(info.Search) &&
+          info.Search.length > 0 &&
+          info.Search.map((item) => (
             <SearchResItem
-              key={item['imdbID']}
-              title={item['Title']}
-              poster={item['Poster']}
-              year={item['Year']}
-              type={item['Type']}
-              imdbId={item['imdbID']}
+              key={item.imdbID}
+              title={item.Title}
+              poster={item.Poster}
+              year={item.Year}
+              type={item.Type}
+              imdbId={item.imdbID}
             />
           ))}
         {/* handle error response */}
-        {info['Response'] === 'False' && (
+        {info && info.Response === 'False' && (
           <div>
             :\ Woops! No Result Found, Please try again with other movie titles
           </div>

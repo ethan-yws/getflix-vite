@@ -10,6 +10,7 @@ import {
 } from './SearchResItem.styles';
 import PosterNotFound from '../../assets/imageNotFound.png';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 interface ISearchResItem {
   title: string;
@@ -19,6 +20,11 @@ interface ISearchResItem {
   imdbId: string;
 }
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000;
+`;
+
 export const SearchResItem: React.FC<ISearchResItem> = ({
   title,
   poster,
@@ -27,10 +33,7 @@ export const SearchResItem: React.FC<ISearchResItem> = ({
   imdbId,
 }) => {
   return (
-    <Link
-      to={`/movie/${imdbId}`}
-      style={{ textDecoration: 'none', color: '#000' }}
-    >
+    <StyledLink to={`/movie/${imdbId}`}>
       <Wrapper>
         <Poster>
           <Image src={poster === 'N/A' ? PosterNotFound : poster} alt={title} />
@@ -43,6 +46,6 @@ export const SearchResItem: React.FC<ISearchResItem> = ({
           <TypeTag>{type}</TypeTag>
         </InfoContainer>
       </Wrapper>
-    </Link>
+    </StyledLink>
   );
 };

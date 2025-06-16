@@ -14,6 +14,21 @@ const Wrapper = styled.div`
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
+
+  h3,
+  span {
+    width: 150px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0.5em 0 0 0;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000;
 `;
 
 interface MovieCardProps {
@@ -30,15 +45,12 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   imdbId,
 }) => {
   return (
-    <Link
-      to={`/movie/${imdbId}`}
-      style={{ textDecoration: 'none', color: '#000' }}
-    >
+    <StyledLink to={`/movie/${imdbId}`}>
       <Wrapper>
         <img src={posterUrl} alt={title} />
         <h3>{title}</h3>
         <span>{releaseDate}</span>
       </Wrapper>
-    </Link>
+    </StyledLink>
   );
 };
