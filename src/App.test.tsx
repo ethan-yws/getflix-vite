@@ -1,6 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import App from './App';
 import { MovieDetails } from './pages/MovieDetails';
+import { imdbApiClient } from './apis/imdb-api-client';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -104,17 +105,13 @@ describe('Getflix test suite', () => {
   });
 
   it('should display the MovieDetails Page', async () => {
-    global.fetch = jest.fn().mockResolvedValueOnce({
-      json: () => Promise.resolve(mockOMDBResponseById),
-    });
+    const getIMDBMovieDetailsSpy = jest
+      .spyOn(imdbApiClient, 'getIMDBMovieDetails')
+      .mockResolvedValue(mockOMDBResponseById);
 
     const { getByText } = render(<MovieDetails />);
 
-    await waitFor(() =>
-      expect(fetch).toHaveBeenCalledWith(
-        'https://www.omdbapi.com/?apikey=320f6ab2&i=someId'
-      )
-    );
+    expect(getIMDBMovieDetailsSpy).toHaveBeenCalledWith('someId');
     await waitFor(() =>
       expect(getByText(mockOMDBResponseById.Title)).toBeTruthy()
     );

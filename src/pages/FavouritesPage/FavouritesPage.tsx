@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import useUserStore from '../../store/useUserStore';
 import { supabaseClient, imdbApiClient } from '../../apis';
 import { Spinner } from '../../ui//Spinner';
 import { MovieCard } from '../../components/MovieCard';
 import styled from 'styled-components';
+import { IMDBMovieDetails } from '../../apis/types';
 
 const FavouritesContainer = styled.div`
   display: flex;
@@ -16,7 +16,9 @@ const FavouritesContainer = styled.div`
 
 export const FavouritesPage = () => {
   const { user_id: userId } = useUserStore((state) => state.user) || {};
-  const [favouriteMovieDetails, setFavouriteMovieDetails] = useState<any[]>([]);
+  const [favouriteMovieDetails, setFavouriteMovieDetails] = useState<
+    IMDBMovieDetails[]
+  >([]);
 
   useEffect(() => {
     const fetchFavouritesAndDetails = async () => {

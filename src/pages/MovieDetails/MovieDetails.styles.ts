@@ -138,3 +138,38 @@ export const Rating = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const IconButton = styled.button`
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(116, 116, 116, 0.85);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    border 0.2s;
+
+  &:hover {
+    background: rgb(0, 0, 0);
+    border: 1px solid #888;
+    transform: scale(1.08);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 2px #333) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+  }
+`;
