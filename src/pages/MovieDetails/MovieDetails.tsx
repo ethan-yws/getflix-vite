@@ -26,6 +26,7 @@ import { supabaseClient } from '../../apis';
 import useUserStore from '../../store/useUserStore';
 import { imdbApiClient } from '../../apis/imdb-api-client';
 import { IMDBMovieDetails } from '../../apis/types';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const MovieDetails: React.FC = () => {
   const { imdbId } = useParams<{ imdbId: string }>();
@@ -33,6 +34,7 @@ export const MovieDetails: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const { user_id: userId } = useUserStore((state) => state.user) || {};
+  const { isAuthenticated } = useAuth0();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +61,7 @@ export const MovieDetails: React.FC = () => {
 
   return (
     <div style={{ position: 'relative', height: '100%' }}>
-      {details && (
+      {isAuthenticated && details && (
         <IconButton onClick={handleFavourite} aria-label="Add to favourites">
           <img src={IconFav} alt="Add to favourites" />
         </IconButton>
